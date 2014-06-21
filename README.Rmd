@@ -1,0 +1,116 @@
+Getting and Cleaning Data Course Project - Peer Assessments
+========================================================
+
+## Set working directory 
+
+First of all, I setup the working directory
+```{r}
+setwd("C:/Users/mbonoli/Documents/GitHub/gcd_project")
+```
+
+## Reading datasets and the varibles definition
+```{r}
+# Reading both datasets
+X_test <- read.table("X_test.txt", quote="\"")
+X_train <- read.table("X_train.txt", quote="\"")
+
+# Reading variable names
+features_names <- read.table("features.txt", quote="\"")[,2]
+
+# Reading activity names
+activities_names <- read.table("~/GitHub/gcd_project/activity_labels.txt", quote="\"")
+names(activities_names) <- c("id_activity", "activity")
+
+# Reading activities (y)
+y_test <- read.table("y_test.txt", quote="\"")
+y_train <- read.table("y_train.txt", quote="\"")
+
+# Reading individuals data
+indiv_test <- read.table("subject_test.txt", quote="\"")
+indiv_train <- read.table("subject_train.txt", quote="\"")
+indiv <- rbind(indiv_test, indiv_train)
+names(indiv) <- "indiv"
+```
+
+## Starts
+
+### 1. Merges the training and the test sets to create one data set
+```{r}
+X <- rbind(X_test, X_train)
+y <- rbind(y_test, y_train)
+activities <- activities_names[y[,1],2]
+```
+
+### 3. Uses descriptive activity names to name the activities in the data set
+```{r}
+names(X) <- features_names
+```
+
+### 2. Extracts only the measurements on the mean and standard deviation for each measurement
+
+Storing the names of variables that contains ***mean()*** and ***std()*** in two vectors
+```{r}
+mean_names <- as.character(features_names[grep("mean()", features_names, fixed=TRUE)])
+mean_names
+sd_names <- as.character(features_names[grep("std()", features_names, fixed=TRUE)])
+sd_names
+``` 
+Creating a dataset with includes the variables of interest: ID, activity and "mean" and "sd" of features.
+
+```{r}
+X_final <- cbind(indiv=indiv,
+                 activity=activities,
+                X[,mean_names],
+                X[,sd_names])
+head(X_final)
+``` 
+
+## 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+Storing individual IDs in a vector
+```{r}
+indiv_ids <- unique(X_final[,"indiv"])
+```
+
+
+Creating an empty dataframe with the same struture than **X_final**
+```{r}
+tidy_data <- X_final[0,]
+```
+
+
+
+Adding records to tidy dataset through a bucle
+```{r}
+for (id in indiv_ids){
+    for (act in activities_names[,2]){
+        tidy_data <- rbind(tidy_data,
+                             cbind(indiv=as.numeric(id), 
+                                   activity=act,
+                                   rbind(colMeans(X_final[X_final$indiv==id & X_final$activity==act,c(-1,-2)],na.rm=T)))
+                             )
+    }
+}
+for (i in c("indiv",mean_names,sd_names)) {
+    tidy_data[,i] <- as.numeric(as.character(tidy_data[,i]))
+}
+```
+## 4. Appropriately labels the data set with descriptive variable names. 
+```{r}
+names(tidy_data)[3:68] <- paste("average_",names(tidy_data)[3:68],sep="")
+names(tidy_data)
+```
+
+Checking results
+```{r}
+dim(tidy_data)
+str(tidy_data)
+head(tidy_data)
+```
+
+
+
+Storing data in **txt** and **Rdata** files
+```{r}
+write.table(tidy_data, file="tidy_data.txt", sep="\t", dec=".")
+save(tidy_data, file="tidy_data.Rdata")
+```

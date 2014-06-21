@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Code Book</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Code Book</h1>
+
+<p>This Code Book contains a description of tidy data set <strong>tidy_data.txt</strong>.</p>
+
+<p>The aggregated data from Human Activity Recognition Using Smartphones Data Set published in 
+<a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></p>
+
+<p>The dataset contains a record for each individual-activity combination.<br/>
+There is 30 individuals numbered from 1 to 30.<br/>
+There is 6 activities: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING.  </p>
+
+<p>For each combination individual-activity, the dataset includes the mean of several features releved by embedded accelerometer and gyroscope.</p>
+
+<h1>Variables description</h1>
+
+<p><strong><em>indiv:</em></strong> Individual ID<br/>
+<strong><em>activity:</em></strong> activity<br/>
+<strong><em>tBodyAcc-mean()-X:</em></strong> Average of feature   tBodyAcc-mean()-X<br/>
+<strong><em>tBodyAcc-mean()-Y:</em></strong> Average of feature   tBodyAcc-mean()-Y<br/>
+<strong><em>tBodyAcc-mean()-Z:</em></strong> Average of feature   tBodyAcc-mean()-Z<br/>
+<strong><em>tGravityAcc-mean()-X:</em></strong> Average of feature   tGravityAcc-mean()-X<br/>
+<strong><em>tGravityAcc-mean()-Y:</em></strong> Average of feature   tGravityAcc-mean()-Y<br/>
+<strong><em>tGravityAcc-mean()-Z:</em></strong> Average of feature   tGravityAcc-mean()-Z<br/>
+<strong><em>tBodyAccJerk-mean()-X:</em></strong> Average of feature   tBodyAccJerk-mean()-X<br/>
+<strong><em>tBodyAccJerk-mean()-Y:</em></strong> Average of feature   tBodyAccJerk-mean()-Y<br/>
+<strong><em>tBodyAccJerk-mean()-Z:</em></strong> Average of feature   tBodyAccJerk-mean()-Z<br/>
+<strong><em>tBodyGyro-mean()-X:</em></strong> Average of feature   tBodyGyro-mean()-X<br/>
+<strong><em>tBodyGyro-mean()-Y:</em></strong> Average of feature   tBodyGyro-mean()-Y<br/>
+<strong><em>tBodyGyro-mean()-Z:</em></strong> Average of feature   tBodyGyro-mean()-Z<br/>
+<strong><em>tBodyGyroJerk-mean()-X:</em></strong> Average of feature   tBodyGyroJerk-mean()-X<br/>
+<strong><em>tBodyGyroJerk-mean()-Y:</em></strong> Average of feature   tBodyGyroJerk-mean()-Y<br/>
+<strong><em>tBodyGyroJerk-mean()-Z:</em></strong> Average of feature   tBodyGyroJerk-mean()-Z<br/>
+<strong><em>tBodyAccMag-mean():</em></strong> Average of feature   tBodyAccMag-mean()<br/>
+<strong><em>tGravityAccMag-mean():</em></strong> Average of feature   tGravityAccMag-mean()<br/>
+<strong><em>tBodyAccJerkMag-mean():</em></strong> Average of feature   tBodyAccJerkMag-mean()<br/>
+<strong><em>tBodyGyroMag-mean():</em></strong> Average of feature   tBodyGyroMag-mean()<br/>
+<strong><em>tBodyGyroJerkMag-mean():</em></strong> Average of feature   tBodyGyroJerkMag-mean()<br/>
+<strong><em>fBodyAcc-mean()-X:</em></strong> Average of feature   fBodyAcc-mean()-X<br/>
+<strong><em>fBodyAcc-mean()-Y:</em></strong> Average of feature   fBodyAcc-mean()-Y<br/>
+<strong><em>fBodyAcc-mean()-Z:</em></strong> Average of feature   fBodyAcc-mean()-Z<br/>
+<strong><em>fBodyAccJerk-mean()-X:</em></strong> Average of feature   fBodyAccJerk-mean()-X<br/>
+<strong><em>fBodyAccJerk-mean()-Y:</em></strong> Average of feature   fBodyAccJerk-mean()-Y<br/>
+<strong><em>fBodyAccJerk-mean()-Z:</em></strong> Average of feature   fBodyAccJerk-mean()-Z<br/>
+<strong><em>fBodyGyro-mean()-X:</em></strong> Average of feature   fBodyGyro-mean()-X<br/>
+<strong><em>fBodyGyro-mean()-Y:</em></strong> Average of feature   fBodyGyro-mean()-Y<br/>
+<strong><em>fBodyGyro-mean()-Z:</em></strong> Average of feature   fBodyGyro-mean()-Z<br/>
+<strong><em>fBodyAccMag-mean():</em></strong> Average of feature   fBodyAccMag-mean()<br/>
+<strong><em>fBodyBodyAccJerkMag-mean():</em></strong> Average of feature   fBodyBodyAccJerkMag-mean()<br/>
+<strong><em>fBodyBodyGyroMag-mean():</em></strong> Average of feature   fBodyBodyGyroMag-mean()<br/>
+<strong><em>fBodyBodyGyroJerkMag-mean():</em></strong> Average of feature   fBodyBodyGyroJerkMag-mean()<br/>
+<strong><em>tBodyAcc-std()-X:</em></strong> Average of feature   tBodyAcc-std()-X<br/>
+<strong><em>tBodyAcc-std()-Y:</em></strong> Average of feature   tBodyAcc-std()-Y<br/>
+<strong><em>tBodyAcc-std()-Z:</em></strong> Average of feature   tBodyAcc-std()-Z<br/>
+<strong><em>tGravityAcc-std()-X:</em></strong> Average of feature   tGravityAcc-std()-X<br/>
+<strong><em>tGravityAcc-std()-Y:</em></strong> Average of feature   tGravityAcc-std()-Y<br/>
+<strong><em>tGravityAcc-std()-Z:</em></strong> Average of feature   tGravityAcc-std()-Z<br/>
+<strong><em>tBodyAccJerk-std()-X:</em></strong> Average of feature   tBodyAccJerk-std()-X<br/>
+<strong><em>tBodyAccJerk-std()-Y:</em></strong> Average of feature   tBodyAccJerk-std()-Y<br/>
+<strong><em>tBodyAccJerk-std()-Z:</em></strong> Average of feature   tBodyAccJerk-std()-Z<br/>
+<strong><em>tBodyGyro-std()-X:</em></strong> Average of feature   tBodyGyro-std()-X<br/>
+<strong><em>tBodyGyro-std()-Y:</em></strong> Average of feature   tBodyGyro-std()-Y<br/>
+<strong><em>tBodyGyro-std()-Z:</em></strong> Average of feature   tBodyGyro-std()-Z<br/>
+<strong><em>tBodyGyroJerk-std()-X:</em></strong> Average of feature   tBodyGyroJerk-std()-X<br/>
+<strong><em>tBodyGyroJerk-std()-Y:</em></strong> Average of feature   tBodyGyroJerk-std()-Y<br/>
+<strong><em>tBodyGyroJerk-std()-Z:</em></strong> Average of feature   tBodyGyroJerk-std()-Z<br/>
+<strong><em>tBodyAccMag-std():</em></strong> Average of feature   tBodyAccMag-std()<br/>
+<strong><em>tGravityAccMag-std():</em></strong> Average of feature   tGravityAccMag-std()<br/>
+<strong><em>tBodyAccJerkMag-std():</em></strong> Average of feature   tBodyAccJerkMag-std()<br/>
+<strong><em>tBodyGyroMag-std():</em></strong> Average of feature   tBodyGyroMag-std()<br/>
+<strong><em>tBodyGyroJerkMag-std():</em></strong> Average of feature   tBodyGyroJerkMag-std()<br/>
+<strong><em>fBodyAcc-std()-X:</em></strong> Average of feature   fBodyAcc-std()-X<br/>
+<strong><em>fBodyAcc-std()-Y:</em></strong> Average of feature   fBodyAcc-std()-Y<br/>
+<strong><em>fBodyAcc-std()-Z:</em></strong> Average of feature   fBodyAcc-std()-Z<br/>
+<strong><em>fBodyAccJerk-std()-X:</em></strong> Average of feature   fBodyAccJerk-std()-X<br/>
+<strong><em>fBodyAccJerk-std()-Y:</em></strong> Average of feature   fBodyAccJerk-std()-Y<br/>
+<strong><em>fBodyAccJerk-std()-Z:</em></strong> Average of feature   fBodyAccJerk-std()-Z<br/>
+<strong><em>fBodyGyro-std()-X:</em></strong> Average of feature   fBodyGyro-std()-X<br/>
+<strong><em>fBodyGyro-std()-Y:</em></strong> Average of feature   fBodyGyro-std()-Y<br/>
+<strong><em>fBodyGyro-std()-Z:</em></strong> Average of feature   fBodyGyro-std()-Z<br/>
+<strong><em>fBodyAccMag-std():</em></strong> Average of feature   fBodyAccMag-std()<br/>
+<strong><em>fBodyBodyAccJerkMag-std():</em></strong> Average of feature   fBodyBodyAccJerkMag-std()<br/>
+<strong><em>fBodyBodyGyroMag-std():</em></strong> Average of feature   fBodyBodyGyroMag-std()<br/>
+<strong><em>fBodyBodyGyroJerkMag-std():</em></strong> Average of feature   fBodyBodyGyroJerkMag-std()   </p>
+
+<h1>Features details</h1>
+
+<p>The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix &#39;t&#39; to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. </p>
+
+<p>Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). </p>
+
+<p>Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the &#39;f&#39; to indicate frequency domain signals). </p>
+
+<p>These signals were used to estimate variables of the feature vector for each pattern:<br/>
+&#39;-XYZ&#39; is used to denote 3-axial signals in the X, Y and Z directions.</p>
+
+<p>tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag</p>
+
+<p>The set of variables that were estimated from these signals are: </p>
+
+<p>mean(): Mean value
+std(): Standard deviation</p>
+
+</body>
+
+</html>
+
