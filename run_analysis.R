@@ -57,3 +57,4 @@ dim(tidy_data)
 str(tidy_data)
 write.table(tidy_data, file="tidy_data.txt", sep="\t", dec=".")
 save(tidy_data, file="tidy_data.Rdata")
+tidy_data
